@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { account } from "../../config";
+import { Button } from "@chakra-ui/react";
 
 const SocialSignIn = () => {
   const googleAuth = (e) => {
@@ -36,7 +37,9 @@ const SocialSignIn = () => {
       <b>OR:</b>
       <br />
 
-      <button onClick={(e) => googleAuth(e)}>Google</button>
+      <Button colorScheme="red" onClick={(e) => googleAuth(e)}>
+  Google
+</Button>
     </div>
   );
 };
