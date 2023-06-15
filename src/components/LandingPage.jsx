@@ -2,6 +2,7 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import SocialSignIn from "./auth/SocialSignIn";
+import FileUploader from "../FileUploader"
 import {
   Button,
   Center,
@@ -41,26 +42,26 @@ const LandingPage = () => {
   return (
     <div>
       <NavBar />
-  
+      <FileUploader />
       <Container maxW="container.lg">
         <Center p={8} minHeight="70vh">
           <VStack>
             <Container maxW="container.md" textAlign="center">
-            <Heading size="xl" mb={4} color="gray.700">
-      Ship Your Blogs{" "}
-      <Box
-        display="inline-block"
-        p={2}
-        color="white"
-      >
-        <Box 
-          border={"none"}
-          background = "linear-gradient(89.91deg, #1596DF 56.12%, #BC00CC 99.92%)">
-          10X Faster With AI
-        </Box>
-        
-      </Box>
-    </Heading>
+              <Heading size="xl" mb={4} color="gray.700">
+                Ship Your Blogs{" "}
+                <Box
+                  display="inline-block"
+                  p={2}
+                  color="white"
+                >
+                  <Box
+                    border={"none"}
+                    background="linear-gradient(89.91deg, #1596DF 56.12%, #BC00CC 99.92%)">
+                    10X Faster With AI
+                  </Box>
+
+                </Box>
+              </Heading>
 
               <Text fontSize="xl" color="gray.500">
                 Be the first one to experience future of writing with our AI
@@ -100,12 +101,12 @@ const LandingPage = () => {
               >
                 This is not the 252853rd blogging tool, it has an
                 <br />
-                  AI Assistant for SEO-optimized content & boooom success is guaranteed.
+                AI Assistant for SEO-optimized content & boooom success is guaranteed.
               </Box>
-      <Features />
-      <Pricing />
-      <FAQs />
-      <Footer />
+              <Features />
+              <Pricing />
+              <FAQs />
+              <Footer />
             </Container>
           </VStack>
         </Center>
