@@ -1,0 +1,275 @@
+﻿Sure, I'll guide you through the process step-by-step. 
+
+For this project, we will be using the following main tools:
+
+1. **React.js** for the user interface.
+2. **Vite.js** for setting up the development environment.
+3. **Chakra UI** for styling and layout of components.
+4. **React Router Dom** for navigation.
+
+You'll need Node.js installed on your machine to proceed. If it is not installed, you can download it from [here](https://nodejs.org/en/download/).
+
+First, let's start by creating a new Vite.js project with a React template.
+
+```bash
+npx create-vite my-app --template react
+cd my-app
+```
+
+We then need to install Chakra UI and React Router Dom. You can install them by running:
+
+```bash
+npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion react-router-dom
+```
+
+Now we can create our project structure. Inside the `src` directory, create the following folders:
+
+- `components`: For all reusable components.
+- `pages`: For the pages of the app.
+- `layouts`: For page layouts.
+
+Here is the complete project structure:
+
+```
+.
+├── src
+│   ├── components
+│   │   ├── NavBar.js
+│   │   ├── Workspace.js
+│   │   ├── ArticleCard.js
+│   ├── layouts
+│   │   ├── MainLayout.js
+│   ├── pages
+│   │   ├── Home.js
+│   ├── App.js
+├── index.css
+└── index.js
+```
+
+Now, let's start coding!
+
+#### NavBar.js (src/components/NavBar.js)
+
+```jsx
+import React from 'react';
+import { Box, Button, IconButton, useColorMode, VStack } from '@chakra-ui/react';
+import { HamburgerIcon, SunIcon, MoonIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
+
+const NavBar = ({ isCollapsed, handleCollapse }) => {
+  const { colorMode, toggleColorMode } = useColorMode();
+  const isDark = colorMode === 'dark';
+
+  return (
+    <Box
+      w={isCollapsed ? '8%' : '20%'}
+      h='100vh'
+      bg={isDark ? 'gray.800' : 'white'}
+      p={4}
+      borderRightWidth={1}
+      borderColor={isDark ? 'gray.700' : 'gray.200'}
+    >
+      <VStack align='stretch'>
+        <Link to='/'>
+          <img src='/logo.png' alt='HyperBlog Logo' />
+        </Link>
+        {isCollapsed ? (
+          <IconButton
+            aria-label='Menu'
+            icon={<HamburgerIcon />}
+            onClick={handleCollapse}
+          />
+        ) : (
+          <>
+            <Button as={Link} to='/editor-settings'>
+              Editor Settings
+            </Button>
+            <Button as={Link} to='/user-settings'>
+              User Settings
+            </Button>
+            <Button as={Link} to='/documentation'>
+              How to use HyperBlog
+            </Button>
+            <Button as={Link} to='/new-article'>
+              Start a new article
+            </Button>
+            <Button onClick={toggleColorMode}>
+              Change theme ({isDark ? <SunIcon /> : <MoonIcon />})
+            </Button>
+            <IconButton
+              aria-label='Menu'
+              icon={<HamburgerIcon />}
+              onClick={handleCollapse}
+            />
+          </>
+        )}
+      </VStack>
+    </Box>
+  );
+};
+
+export default NavBar;
+```
+
+#### Workspace.js (src/components/Workspace.js)
+
+```jsx
+import
+
+ React from 'react';
+import { Box, Button, SimpleGrid, useColorMode } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
+import ArticleCard from './ArticleCard';
+
+const Workspace = ({ articles }) => {
+  const { colorMode } = useColorMode();
+  const isDark = colorMode === 'dark';
+
+  return (
+    <Box
+      w='80%'
+      h='100vh'
+      bg={isDark ? 'gray.800' : 'white'}
+      p={8}
+      borderColor={isDark ? 'gray.700' : 'gray.200'}
+    >
+      <Button as={Link} to='/new-article' colorScheme='teal' mb={4}>
+        Start a new article
+      </Button>
+      <SimpleGrid columns={2} spacing={10}>
+        {articles.map((article, index) => (
+          <ArticleCard key={index} article={article} />
+        ))}
+      </SimpleGrid>
+    </Box>
+  );
+};
+
+export default Workspace;
+```
+
+#### ArticleCard.js (src/components/ArticleCard.js)
+
+```jsx
+import React from 'react';
+import { Box, Button, Heading, useColorMode } from '@chakra-ui/react';
+import { LinkIcon, DeleteIcon } from '@chakra-ui/icons';
+
+const ArticleCard = ({ article }) => {
+  const { colorMode } = useColorMode();
+  const isDark = colorMode === 'dark';
+
+  return (
+    <Box
+      p={5}
+      shadow='md'
+      borderWidth={1}
+      flex='1'
+      borderRadius='md'
+      borderColor={isDark ? 'gray.700' : 'gray.200'}
+    >
+      <Heading fontSize='xl'>{article.title}</Heading>
+      <Button mt={4} colorScheme='teal' variant='outline' leftIcon={<LinkIcon />}>
+        Share
+      </Button>
+      <Button
+        mt={4}
+        colorScheme='red'
+        variant='outline'
+        leftIcon={<DeleteIcon />}
+        ml={4}
+      >
+        Delete
+      </Button>
+    </Box>
+  );
+};
+
+export default ArticleCard;
+```
+
+#### MainLayout.js (src/layouts/MainLayout.js)
+
+```jsx
+import React, { useState } from 'react';
+import { Flex } from '@chakra-ui/react';
+import NavBar from '../components/NavBar';
+import Workspace from '../components/Workspace';
+
+const MainLayout = ({ children, articles }) => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const handleCollapse = () => setIsCollapsed(!isCollapsed);
+
+  return (
+    <Flex>
+      <NavBar isCollapsed={isCollapsed} handleCollapse={handleCollapse} />
+      <Workspace articles={articles} />
+      {children}
+    </Flex>
+  );
+};
+
+export default MainLayout;
+```
+
+#### Home.js (src/pages/Home.js)
+
+```jsx
+import React from 'react';
+import MainLayout from '../layouts/MainLayout';
+
+const Home = ({ articles }) => {
+  return (
+    <MainLayout articles={articles}>
+      {/* Additional components can be added here */}
+    </MainLayout>
+  );
+};
+
+export default Home;
+```
+
+#### App.js (src/App.js)
+
+```jsx
+import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+
+const App = () => {
+  const articles = [
+    // Add your articles here
+    { title: 'Article 1' },
+    { title: 'Article 2' },
+    // ...
+  ];
+
+  return (
+    <ChakraProvider>
+      <Router>
+
+
+        <Switch>
+          <Route path='/'>
+            <Home articles={articles} />
+          </Route>
+          {/* Other routes can be added here */}
+        </Switch>
+      </Router>
+    </ChakraProvider>
+  );
+};
+
+export default App;
+```
+
+That's it. Run the project with:
+
+```bash
+npm run dev
+```
+
+You should now see the main dashboard at http://localhost:5000.
+
+Please note that this is a simple implementation and you might want to make changes as per your requirements.

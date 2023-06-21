@@ -2,6 +2,7 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import SocialSignIn from "./auth/SocialSignIn";
+import FileUploader from "../FileUploader"
 import {
   Button,
   Center,
@@ -104,13 +105,17 @@ const LandingPage = () => {
               >
                 This is not the 252853rd blogging tool, it has an
                 <br />
-                  AI Assistant for SEO-optimized content & boooom success is guaranteed.
+                AI Assistant for SEO-optimized content & boooom success is guaranteed.
               </Box>
       <Features />
       <Pricing />
       <FAQs />
       <Footer /> 
       
+              <Features />
+              <Pricing />
+              <FAQs />
+              <Footer />
             </Container>
           </VStack>
         </Center>
