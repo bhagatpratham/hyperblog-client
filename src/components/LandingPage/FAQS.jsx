@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Box, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Text, Heading } from "@chakra-ui/react";
 
 const FAQs = () => {
@@ -11,14 +12,14 @@ const FAQs = () => {
           <h2>
             <AccordionButton>
               <Box flex="1" textAlign="left">
-                Can it write blog posts autonomously using AI?
+              What file format should I upload to HyperBlog.me?
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </h2>
           <AccordionPanel>
             <Text>
-              Absolutely! HyperBlog harnesses the superpower of AI to generate captivating blog posts automatically.
+            HyperBlog.me accepts .txt, .pdf, .doc documents for easy content upload. (We will add more upload options once HyperBlog starts growing.)
             </Text>
           </AccordionPanel>
         </AccordionItem>
@@ -27,18 +28,33 @@ const FAQs = () => {
           <h2>
             <AccordionButton>
               <Box flex="1" textAlign="left">
-                How does it generate stock images?
+              Can I customize the tone and target audience of my articles?
               </Box>
               <AccordionIcon />
             </AccordionButton>
           </h2>
           <AccordionPanel>
             <Text>
-              HyperBlog's AI assistant effortlessly discovers relevant, copyright-free stock images to enhance your blog posts.
+            Absolutely! HyperBlog.me allows you to define the tone and target audience for your articles. Whether you want a formal tone for professional content or a conversational tone for a friendly approach, our platform adapts to your preferences.
             </Text>
           </AccordionPanel>
         </AccordionItem>
 
+        <AccordionItem>
+          <h2>
+            <AccordionButton>
+              <Box flex="1" textAlign="left">
+              Will the generated articles be SEO-optimized?
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+          </h2>
+          <AccordionPanel>
+            <Text>
+            Yes, indeed! When you click "Generate with AI," HyperBlog.me's AI-powered algorithms generate SEO-optimized articles for you. This means your content will be optimized for search engine visibility, saving you the hassle of manual keyword research and optimization
+            </Text>
+          </AccordionPanel>
+        </AccordionItem>
         <AccordionItem>
           <h2>
             <AccordionButton>

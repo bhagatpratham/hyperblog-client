@@ -1,4 +1,4 @@
-// /* eslint-disable no-unused-vars */
+ /* eslint-disable no-unused-vars */
 // import React, { useState } from "react";
 // import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
@@ -87,6 +87,7 @@ import { useNavigate } from "react-router-dom";
 import { account } from "../../config";
 import SocialSignIn from "./SocialSignIn";
 import { Box, Button, FormControl, FormLabel, Input, Text } from "@chakra-ui/react";
+import Home from "../Home";
 
 const Login = () => {
   const [loginDetails, setLoginDetails] = useState({
@@ -103,7 +104,7 @@ const Login = () => {
         loginDetails.email,
         loginDetails.password
       );
-      navigate("/home");
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
@@ -162,6 +163,7 @@ const Login = () => {
         </Button>
       </form>
       <SocialSignIn />
+      <Home />
     </Box>
   );
 };

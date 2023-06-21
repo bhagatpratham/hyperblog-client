@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // import React from "react";
 // import { Box, Image, Text } from "@chakra-ui/react";
 
@@ -62,34 +63,47 @@ const Features = () => {
   return (
     <Box py={8} mt={400}>
       <Heading as="h2" mb={10} textAlign="center">
-        Key Features
+      How does it work?
       </Heading>
-      <Flex justify="center">
+      <Text my={4} fontSize="medium" color="gray.500">
+               It's as simple as 1, 2, 3...
+              </Text>
+              
+      <Flex justify="center" mt={50}>
         <Box maxW="sm" mx={4} textAlign="center">
           <Icon as={CheckCircleIcon} boxSize={10} color="teal.500" mb={4} />
           <Heading as="h3" fontSize="xl" mb={2}>
-            Feature 1
+            Step 1
           </Heading>
-          <Text>
-            Description of feature 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <Text fontWeight={"bold"}>
+          Upload any Document
+          </Text>
+          <Text my={4} fontSize="medium" color="gray.500">
+          Start by sharing your ideas, research, or existing content by uploading a .txt document. Whether it's a rough draft, notes, or a complete article, our intelligent system will work its magic.          
           </Text>
         </Box>
         <Box maxW="sm" mx={4} textAlign="center">
           <Icon as={CheckCircleIcon} boxSize={10} color="teal.500" mb={4} />
           <Heading as="h3" fontSize="xl" mb={2}>
-            Feature 2
+            Step 2
           </Heading>
-          <Text>
-            Description of feature 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <Text fontWeight={"bold"}>
+          Select Target Audience and Desired Tone
+          </Text>
+          <Text my={4} fontSize="medium" color="gray.500">
+          Define your target audience and the tone you want your article to have. Whether you're aiming for a formal and professional tone or a conversational and friendly approach, our platform adapts to your requirements.          
           </Text>
         </Box>
         <Box maxW="sm" mx={4} textAlign="center">
           <Icon as={CheckCircleIcon} boxSize={10} color="teal.500" mb={4} />
           <Heading as="h3" fontSize="xl" mb={2}>
-            Feature 3
+            Step 3
           </Heading>
-          <Text>
-            Description of feature 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <Text fontWeight={"bold"}>
+          Click "Generate with AI" and Get an SEO-Optimized Article
+          </Text>
+          <Text my={4} fontSize="medium" color="gray.500">
+          Now, the magic happens! With a single click, HyperBlog.me's AI-powered algorithms generate an SEO-optimized article for you. The generated content will be ready for review and editing in the integrated text editor. No more hours spent on keyword research or tweaking your content for search engine visibility – we take care of it all.          
           </Text>
         </Box>
       </Flex>

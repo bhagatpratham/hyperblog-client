@@ -47,7 +47,7 @@ const Home = () => {
       });
   }
 
-  if (userDetails) {
+  // if (userDetails) {
     return (
       <div>
         <h3>Home page (Logged In)</h3>
@@ -56,14 +56,14 @@ const Home = () => {
         </div>
       </div>
     );
-  } else {
-    return (
-      <div>
-        <h2>Please login first to see the homepage</h2>
-        <button onClick={() => navigate("/login")}>Login</button>
-      </div>
-    );
-  }
+  // } else {
+  //   return (
+  //     <div>
+  //       <h2>Please login first to see the homepage</h2>
+  //       <button onClick={() => navigate("/login")}>Login</button>
+  //     </div>
+  //   );
+  // }
 };
 
 export default Home;

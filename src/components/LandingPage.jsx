@@ -8,7 +8,7 @@ import {
   Container,
   Heading,
   Image,
-  Text,
+  Text, 
   VStack,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
@@ -35,12 +35,13 @@ import Features from "./LandingPage/Features";
 import Pricing from "./LandingPage/Pricing";
 import FAQs from "./LandingPage/FAQS";
 import Footer from "./LandingPage/Footer";
+import Home from "./Home";
 
 const LandingPage = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <NavBar />
+      <NavBar /> 
   
       <Container maxW="container.lg">
         <Center p={8} minHeight="70vh">
@@ -52,19 +53,22 @@ const LandingPage = () => {
         display="inline-block"
         p={2}
         color="white"
-      >
+      > 
         <Box 
           border={"none"}
-          background = "linear-gradient(89.91deg, #1596DF 56.12%, #BC00CC 99.92%)">
+          background = "linear-gradient(89.91deg, #1596DF 56.12%, #BC00CC 99.92%)" 
+          backgroundClip={"text"}
+          textColor={"transparent"}
+          >
+            
           10X Faster With AI
         </Box>
         
-      </Box>
+      </Box> 
     </Heading>
 
               <Text fontSize="xl" color="gray.500">
-                Be the first one to experience future of writing with our AI
-                powered Auto writer
+              HyperBlog.me simplifies article writing with just a few clicks. (See demo below.)
               </Text>
 
               <Button
@@ -74,7 +78,7 @@ const LandingPage = () => {
                   window.open("", "_blank");
                 }}
               >
-                I need this for $19/month →
+                Grab for $49/ Lifetime access → 
               </Button>
 
               <Text my={2} fontSize="sm" color="gray.500">
@@ -105,7 +109,8 @@ const LandingPage = () => {
       <Features />
       <Pricing />
       <FAQs />
-      <Footer />
+      <Footer /> 
+      
             </Container>
           </VStack>
         </Center>

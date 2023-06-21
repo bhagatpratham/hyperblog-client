@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { ChakraProvider, Box, Flex, Link, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router';
